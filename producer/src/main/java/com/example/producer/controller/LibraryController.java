@@ -1,7 +1,7 @@
-package com.example.kafka.controller;
+package com.example.producer.controller;
 
-import com.example.kafka.model.LibraryEvent;
-import com.example.kafka.producer.LibraryEventsProducer;
+import com.example.producer.model.LibraryEvent;
+import com.example.producer.producer.LibraryEventsProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
