@@ -1,4 +1,4 @@
-package com.example.kafka.model;
+package com.example.producer.model;
 
 public enum LibraryEventType {
     CREATE,

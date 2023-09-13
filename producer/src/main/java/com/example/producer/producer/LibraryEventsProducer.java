@@ -1,6 +1,6 @@
-package com.example.kafka.producer;
+package com.example.producer.producer;
 
-import com.example.kafka.model.LibraryEvent;
+import com.example.producer.model.LibraryEvent;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;

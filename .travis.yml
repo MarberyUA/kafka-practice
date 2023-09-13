@@ -1,0 +1,14 @@
+language: java
+jdk:
+  - oraclejdk17
+
+cache:
+  directories:
+    - $HOME/.m2
+
+before_script: cd producer
+
+script:
+  - java --version
+  - mvn clean install
+  - mvn test
