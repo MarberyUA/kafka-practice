@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
@@ -24,7 +25,10 @@ public class LibraryEventsProducer {
     public void sendEvent(LibraryEvent libraryEvent) throws JsonProcessingException {
         Integer key = libraryEvent.libraryEventId();
         String value = objectMapper.writeValueAsString(libraryEvent);
-        CompletableFuture<SendResult<Integer, String>> result =  kafkaTemplate.send("library-events", key, value);
+        String topic = "library-events";
+
+        ProducerRecord<Integer, String> producerRecord = new ProducerRecord<>(topic, key ,value);
+        CompletableFuture<SendResult<Integer, String>> result =  kafkaTemplate.send(producerRecord);
 
         result.whenComplete(((sendResult, throwable) -> {
             if (throwable != null) {
