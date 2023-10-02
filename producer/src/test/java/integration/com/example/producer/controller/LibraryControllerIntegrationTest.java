@@ -27,7 +27,7 @@ class LibraryControllerIntegrationTest {
     void createLibraryEvent() {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("content-type", MediaType.APPLICATION_JSON_VALUE);
-        HttpEntity<LibraryEvent> httpEntity = new HttpEntity<>(LibraryEventFactory.createLibraryEvent(null, LibraryEventType.CREATE, null, "test", "author"),
+        HttpEntity<LibraryEvent> httpEntity = new HttpEntity<>(LibraryEventFactory.createLibraryEvent(1, LibraryEventType.CREATE, 1, "test", "author"),
                 httpHeaders);
 
         ResponseEntity<LibraryEvent> responseEntity =  restTemplate.exchange("/v1/library/create", HttpMethod.POST, httpEntity, LibraryEvent.class);
