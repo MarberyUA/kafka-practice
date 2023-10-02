@@ -1,4 +1,7 @@
 package com.example.producer.model;
 
-public record Book(Long bookId, String bookName, String bookAuthor) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record Book(@NotNull Integer bookId, @NotNull @NotBlank String bookName, String bookAuthor) {
 }
